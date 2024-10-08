@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SpaceshipMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float thrustPower = 10f;  
     public float movePower = 5f;

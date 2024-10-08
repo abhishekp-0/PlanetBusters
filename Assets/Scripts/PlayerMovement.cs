@@ -1,27 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.EventSystems;
 
-public class PlayerMovement : MonoBehaviour
+public class SpaceshipMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float thrustPower = 10f;  
+    public float movePower = 5f;
+    public float drag = 0.98f;       
     public Rigidbody2D rb;
     public Camera cam;
-    Vector2 movement;
-    Vector2 mousePos;
-    // Update is called once per frame
+
+    private Vector2 mousePos;        
+    private float thrustInput;       
+    private float moveInput;
+
+    void Start()
+    {
+        rb.drag = 0;  
+    }
+
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        thrustInput = Input.GetAxisRaw("Vertical");  
+        moveInput = Input.GetAxisRaw("Horizontal");
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
+
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement*moveSpeed *Time.fixedDeltaTime);
+        
         Vector2 lookDir = mousePos - rb.position;
+
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+
         rb.rotation = angle;
+
+        rb.AddForce(transform.up * thrustInput * thrustPower);
+        rb.AddForce(transform.right * moveInput * (movePower));
+
+        rb.velocity *= drag;
     }
 }

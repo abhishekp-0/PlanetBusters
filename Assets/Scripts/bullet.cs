@@ -22,10 +22,9 @@ public class bullet : MonoBehaviour
             timer += t;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+ 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //GameObject effect = Instantiate(hitEffect,transform.position,quaternion.identity);
-        //Destroy(effect,5f);
         Destroy(gameObject);
 
         if (collision.gameObject.tag == "Player")
@@ -34,7 +33,6 @@ public class bullet : MonoBehaviour
             playerHealth.TakeDamage(5);
             Debug.Log("collided");
         }
-
     }
-    
+
 }

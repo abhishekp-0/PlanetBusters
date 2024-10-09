@@ -28,12 +28,13 @@ public class bullet : MonoBehaviour
         //Destroy(effect,5f);
         Destroy(gameObject);
 
+        if (collision.gameObject.tag == "Player")
+        {
+            HealthSystem playerHealth = collision.gameObject.GetComponent<HealthSystem>();
+            playerHealth.TakeDamage(5);
+            Debug.Log("collided");
+        }
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
-            Destroy(gameObject);
-
-    }
+    
 }

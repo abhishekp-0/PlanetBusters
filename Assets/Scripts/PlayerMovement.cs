@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     private bool isOscillating = false;
 
+    public float MouseOffset;
+
     void Start()
     {
         rb.drag = 0;
@@ -33,23 +35,31 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+
+
         if (!isOscillating) // Don't control rotation if oscillating
         {
             Vector2 lookDir = mousePos - rb.position;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
             rb.rotation = angle;
         }
+        
+        float dis = Vector2.Distance(rb.position, mousePos);
+        if(dis > MouseOffset)
+        {
+            rb.AddForce(transform.up * thrustInput * thrustPower);
+            rb.AddForce(transform.right * moveInput * movePower);
 
-        rb.AddForce(transform.up * thrustInput * thrustPower);
-        rb.AddForce(transform.right * moveInput * movePower);
 
-        rb.velocity *= drag;
+            rb.velocity *= drag;
+        }
+        
     }
     [ContextMenu("onHit")]
     public void OnHit()
     {
         Debug.Log("coroutinestarted");
-        StartCoroutine(RotateOscillate());
+      //  StartCoroutine(RotateOscillate());
     }
 
     private IEnumerator RotateOscillate()

@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 mousePos;
     private float thrustInput;
-    private float moveInput;
     private bool isOscillating = false;
 
     public float MouseOffset;
@@ -28,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        thrustInput = Input.GetAxisRaw("Vertical");
-        moveInput = Input.GetAxisRaw("Horizontal");
+        //thrustInput = Input.GetAxisRaw("Vertical");
+        thrustInput = 1;
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
@@ -45,15 +44,14 @@ public class PlayerMovement : MonoBehaviour
         }
         
         float dis = Vector2.Distance(rb.position, mousePos);
-        if(dis > MouseOffset)
+        if(dis > MouseOffset && Input.GetKey(KeyCode.Space ))
         {
             rb.AddForce(transform.up * thrustInput * thrustPower);
-            rb.AddForce(transform.right * moveInput * movePower);
-
-
-            rb.velocity *= drag;
         }
         
+        rb.velocity *= drag;
+
+
     }
     [ContextMenu("onHit")]
     public void OnHit()

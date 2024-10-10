@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4092551779639336595}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: bulletNew
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,3 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 3
+  Planet1HPReduction: 0.1
+  particle: {fileID: 847715091966107881, guid: d3e55c02a6ec1184eb5644ca56e8bfc9, type: 3}

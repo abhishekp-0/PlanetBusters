@@ -18,10 +18,11 @@ public class DestroyAndSpawnParticle : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "asteroid" ||  collision.tag == "Player")
+        if(collision.tag == "asteroid" ||  collision.tag == "Player" || collision.tag == "bulletNew")
         {
             Instantiate(spawnParticle, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
+        
     }
 }

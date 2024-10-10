@@ -9,6 +9,9 @@ public class PlanetHP : MonoBehaviour
     public float HPReduction;
 
     public GameObject WHolePlanet;
+    public GameObject particle;
+
+    public GameObject bulletParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +23,16 @@ public class PlanetHP : MonoBehaviour
     {
         if(HP.value <= 0)
         {
+            Instantiate(particle, transform.position, transform.rotation);
             WHolePlanet.SetActive(false);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "bullet")
+        if(collision.tag == "bulletNew")
         {
             HP.value -= HPReduction / 10;
+            Instantiate(bulletParticle, collision.transform.position, Quaternion.identity);
         }
     }
 }

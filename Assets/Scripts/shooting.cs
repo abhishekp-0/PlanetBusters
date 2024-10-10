@@ -7,13 +7,32 @@ public class shooting : MonoBehaviour
 {
     public Transform firePoint; public GameObject bulletPrefab;
     public float bulletForce = 20f;
+
+    public float timer = 0.1f;
+    float t;
     // Update is called once per frame
+    private void Start()
+    {
+        t = timer;
+    }
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
+        
+        
+            if (Input.GetButton("Fire1"))
+            {
+                timer -= Time.deltaTime;
+                
+                if(timer < 0)
+            {
+                Shoot();
+                timer = t;
+
+            }
+
         }
+        
+        
     }
     void Shoot()
     {

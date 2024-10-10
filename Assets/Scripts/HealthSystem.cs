@@ -12,6 +12,10 @@ public class HealthSystem : MonoBehaviour
     private int hitIndex = 0; // Index to track which element to mark as true
     [SerializeField]
     private PlayerMovement PlayerMovement;
+
+    public SpriteRenderer sr;
+
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -21,6 +25,17 @@ public class HealthSystem : MonoBehaviour
             hitArray[i] = false;
         }
         UpdateHealthBar();
+
+       
+    }
+
+    private void Update()
+    {
+        if(currentHealth <= 0)
+        {
+            sr.enabled = false;
+            PlayerMovement.enabled = false;
+        }
     }
 
     public void TakeDamage(int damage)
@@ -111,6 +126,18 @@ public class HealthSystem : MonoBehaviour
         else
         {
             Debug.LogWarning("Invalid index passed to ResetHitAtIndex.");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "asteroid")
+        {
+            TakeDamage(10);
+        }
+        if(collision.tag == "bullet")
+        {
+            TakeDamage(1);
         }
     }
 }

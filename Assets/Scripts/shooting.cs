@@ -23,7 +23,6 @@ public class shooting : MonoBehaviour
     void Update()
     {
         
-        
             if (Input.GetButton("Fire1"))
             {
                 timer -= Time.deltaTime;

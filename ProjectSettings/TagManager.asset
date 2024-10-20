@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - asteroid
+  - Planet
+  - bullet
+  - bulletNew
+  - t1
   layers:
   - Default
   - TransparentFX

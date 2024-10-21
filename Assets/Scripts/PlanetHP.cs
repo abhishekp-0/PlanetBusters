@@ -31,7 +31,7 @@ public class PlanetHP : MonoBehaviour
     {
         if(collision.tag == "bulletNew")
         {
-            HP.value -= HPReduction / 10;
+            HP.value -= HPReduction / 100;
             Instantiate(bulletParticle, collision.transform.position, Quaternion.identity);
         }
     }

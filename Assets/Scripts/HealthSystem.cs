@@ -5,11 +5,12 @@ public class HealthSystem : MonoBehaviour
 {
     public int maxHealth = 100;
     public Slider healthBar; // Reference to the health bar UI
-    public bool hasArmor = true; // Armor that can endure one hit
+    public Slider armorBar;
 
+    [SerializeField]
     private int currentHealth;
-    private bool[] hitArray = new bool[3]; // Boolean array to track hits
-    private int hitIndex = 0; // Index to track which element to mark as true
+    [SerializeField]
+    private int currentArmor;
     [SerializeField]
     private PlayerMovement PlayerMovement;
 
@@ -19,11 +20,7 @@ public class HealthSystem : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        // Initialize all elements in hitArray to false
-        for (int i = 0; i < hitArray.Length; i++)
-        {
-            hitArray[i] = false;
-        }
+        currentArmor = maxHealth / 2 ;
         UpdateHealthBar();
 
        
@@ -40,11 +37,15 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        PlayerMovement.OnHit();
-        if (hasArmor)
+        if (currentArmor>0)
         {
             Debug.Log("Armor absorbed the hit!");
-            hasArmor = false; // Armor takes one hit and is lost
+            currentArmor -= damage;
+            if (currentArmor <= 0)
+            {
+                currentArmor = 0;
+            }
+            UpdateArmorBar(); // Update the UI
         }
         else
         {
@@ -55,12 +56,6 @@ public class HealthSystem : MonoBehaviour
                 Die();
             }
             UpdateHealthBar(); // Update the UI
-        }
-        if (hitIndex < hitArray.Length)
-        {
-            hitIndex=Random.Range(0, hitArray.Length);
-            hitArray[hitIndex] = true; // Set the next element in the array to true
-            Debug.Log("Hit recorded in array at index: " + hitIndex);
         }
         Debug.Log("TakeDamage");
     }
@@ -83,6 +78,15 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
+    void UpdateArmorBar()
+    {
+        if (armorBar != null)
+        {
+            armorBar.value = (float)currentArmor / maxHealth;
+        }
+    }
+
+
     void Die()
     {
 
@@ -93,41 +97,12 @@ public class HealthSystem : MonoBehaviour
     // Optional method to restore armor
     public void RestoreArmor()
     {
-        hasArmor = true;
+        
         Debug.Log("Armor restored!");
     }
 
     // Function to set a specific index in hitArray to false and check if all elements are false
-    public void ResetHitAtIndex(int index)
-    {
-        if (index >= 0 && index < hitArray.Length)
-        {
-            hitArray[index] = false; // Set the specified element to false
-            Debug.Log("Reset hitArray at index: " + index);
-
-            // Check if all elements in the hitArray are false
-            bool allFalse = true;
-
-            for (int i = 0; i < hitArray.Length; i++)
-            {
-                if (hitArray[i] == true)
-                {
-                    allFalse = false;
-                    break;
-                }
-            }
-
-            // If all elements are false, restore armor
-            if (allFalse)
-            {
-                RestoreArmor();
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Invalid index passed to ResetHitAtIndex.");
-        }
-    }
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

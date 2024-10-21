@@ -7,15 +7,16 @@ public class PlayerMovement : MonoBehaviour
     public float thrustPower = 10f;
     public float movePower = 5f;
     public float drag = 0.98f;
-    public float oscillationDuration = 3f;
-    public float oscillationFrequency = 20f;
-    public float oscillationMagnitude = 15f;
+    //public float oscillationDuration = 3f;
+    //public float oscillationFrequency = 20f;
+    //public float oscillationMagnitude = 15f;
 
     public Rigidbody2D rb;
     public Camera cam;
 
     private Vector2 mousePos;
     private float thrustInput;
+    private float moveInput;
     private bool isOscillating = false;
 
     public float MouseOffset;
@@ -27,8 +28,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //thrustInput = Input.GetAxisRaw("Vertical");
-        thrustInput = 1;
+        thrustInput = Input.GetAxisRaw("Vertical");
+        moveInput = Input.GetAxisRaw("Horizontal");
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
@@ -44,11 +45,12 @@ public class PlayerMovement : MonoBehaviour
         }
         
         float dis = Vector2.Distance(rb.position, mousePos);
-        if(dis > MouseOffset && Input.GetKey(KeyCode.Space ))
+        if(dis > MouseOffset && thrustInput>0)
         {
             rb.AddForce(transform.up * thrustInput * thrustPower);
         }
         
+        rb.AddForce(transform.right * moveInput * movePower);
         rb.velocity *= drag;
 
 
@@ -60,21 +62,21 @@ public class PlayerMovement : MonoBehaviour
       //  StartCoroutine(RotateOscillate());
     }
 
-    private IEnumerator RotateOscillate()
-    {
-        isOscillating = true;
-        rb.velocity = Vector2.zero;
-        float elapsedTime = 0f;
+    //private IEnumerator RotateOscillate()
+    //{
+    //    isOscillating = true;
+    //    rb.velocity = Vector2.zero;
+    //    float elapsedTime = 0f;
 
 
-        while (elapsedTime < oscillationDuration)
-        {
-            float oscillationAngle = Mathf.Sin(elapsedTime * oscillationFrequency) * oscillationMagnitude;
-            rb.rotation += oscillationAngle;
-            elapsedTime += Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate();
-        }
+    //    while (elapsedTime < oscillationDuration)
+    //    {
+    //        float oscillationAngle = Mathf.Sin(elapsedTime * oscillationFrequency) * oscillationMagnitude;
+    //        rb.rotation += oscillationAngle;
+    //        elapsedTime += Time.fixedDeltaTime;
+    //        yield return new WaitForFixedUpdate();
+    //    }
 
-        isOscillating = false;
-    }
+    //    isOscillating = false;
+    //}
 }

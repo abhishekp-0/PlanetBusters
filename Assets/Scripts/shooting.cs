@@ -10,14 +10,18 @@ public class shooting : MonoBehaviour
 
     public float timer = 0.1f;
     float t;
+
+    [Space]
+    public float shakeIntensity = 1f;
+    public float shakeTimer;
     // Update is called once per frame
     private void Start()
     {
         t = timer;
     }
+
     void Update()
     {
-        
         
             if (Input.GetButton("Fire1"))
             {
@@ -39,5 +43,7 @@ public class shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>(); 
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+
+        CameraShake.instance.ShakeCamera(shakeIntensity, shakeTimer);
     }
 }

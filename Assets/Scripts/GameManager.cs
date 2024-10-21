@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
-
         NewGame();
     }
 

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject gameOverScreen;
 
-
+    public float bulletDamage = 10;
     private PlayerMovement player;
 
 

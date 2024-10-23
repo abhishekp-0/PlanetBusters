@@ -8,6 +8,10 @@ public class UpgradeManager : MonoBehaviour
     HealthSystem playerHealth;
     PlayerMovement playerMovement;
     public int upgradesAvailable = 0;
+    public float hpUpgradeVal=25f;
+    public float armorUpgradeVal = 25f;
+    public float thrustUpgradeVal = 5f;
+    public float bulletUpgradeVal = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +29,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (playerHealth.maxHealth < 175 && upgradesAvailable>0)
         {
-            playerHealth.maxHealth += 25;
+            playerHealth.maxHealth += hpUpgradeVal;
             upgradesAvailable--;
         }
     }
@@ -34,7 +38,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (playerHealth.maxArmour < 175 && upgradesAvailable > 0)
         {
-            playerHealth.maxArmour += 25;
+            playerHealth.maxArmour += armorUpgradeVal;
             upgradesAvailable--;
 
         }
@@ -44,7 +48,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if (playerMovement.thrustPower < 25 && upgradesAvailable > 0)
         {
-            playerMovement.thrustPower += 5;
+            playerMovement.thrustPower += thrustUpgradeVal;
             playerMovement.movePower += playerMovement.thrustPower * 0.66f;
             upgradesAvailable--;
         }
@@ -55,7 +59,7 @@ public class UpgradeManager : MonoBehaviour
     {
         if(GameManager.Instance.bulletDamage<25 && upgradesAvailable > 0)
         {
-            GameManager.Instance.bulletDamage += 5f;
+            GameManager.Instance.bulletDamage += bulletUpgradeVal;
             upgradesAvailable--;
         }
 

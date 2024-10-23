@@ -183,7 +183,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.3677, y: -51.16, z: 0}
-  m_LocalScale: {x: 0.34, y: 0.37, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5777300525350205958}
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rotationSpeed: 90.92
+  rotationSpeed: 180
   target: {fileID: 0}
 --- !u!50 &687511574620018497
 Rigidbody2D:

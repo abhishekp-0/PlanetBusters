@@ -3,15 +3,15 @@ using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int maxArmour = 100;
+    public float maxHealth = 100;
+    public float maxArmour = 100;
     public Slider healthBar; // Reference to the health bar UI
     public Slider armorBar;
 
     [SerializeField]
-    private int currentHealth;
+    private float currentHealth;
     [SerializeField]
-    private int currentArmor;
+    private float currentArmor;
     [SerializeField]
     private PlayerMovement PlayerMovement;
 

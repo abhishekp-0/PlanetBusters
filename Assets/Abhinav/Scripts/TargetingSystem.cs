@@ -6,7 +6,7 @@ public class TargetingSystem : MonoBehaviour
     void Update()
     {
         // Check for mouse button click (left button)
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             // Create a ray from the mouse position
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

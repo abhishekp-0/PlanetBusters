@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float thrustPower = 10f;
-    public float movePower = 5f;
+    public float movePower = 12f;
     public float drag = 0.98f;
     //public float oscillationDuration = 3f;
     //public float oscillationFrequency = 20f;
@@ -51,7 +51,9 @@ public class PlayerMovement : MonoBehaviour
         }
         
         rb.AddForce(transform.right * moveInput * movePower);
+        
         rb.velocity *= drag;
+        
 
 
     }

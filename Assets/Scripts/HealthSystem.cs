@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class HealthSystem : MonoBehaviour
 {
     public int maxHealth = 100;
+    public int maxArmour = 100;
     public Slider healthBar; // Reference to the health bar UI
     public Slider armorBar;
 
@@ -15,12 +16,13 @@ public class HealthSystem : MonoBehaviour
     private PlayerMovement PlayerMovement;
 
     public SpriteRenderer sr;
+    public GameObject trailG;
 
 
     void Start()
     {
         currentHealth = maxHealth;
-        currentArmor = maxHealth / 2 ;
+        currentArmor = maxArmour;
         UpdateHealthBar();
 
        
@@ -32,6 +34,7 @@ public class HealthSystem : MonoBehaviour
         {
             sr.enabled = false;
             PlayerMovement.enabled = false;
+            trailG.SetActive(false);
         }
     }
 
@@ -113,6 +116,10 @@ public class HealthSystem : MonoBehaviour
         if(collision.tag == "bullet")
         {
             TakeDamage(1);
+        }
+        if(collision.tag == "missile")
+        {
+            TakeDamage(30);
         }
     }
 }

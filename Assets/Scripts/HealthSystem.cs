@@ -117,5 +117,9 @@ public class HealthSystem : MonoBehaviour
         {
             TakeDamage(1);
         }
+        if(collision.tag == "missile")
+        {
+            TakeDamage(30);
+        }
     }
 }

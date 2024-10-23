@@ -87,7 +87,7 @@ public class CuteScaleAndCollect : MonoBehaviour
         isAttracting = true;
     }
 
-    // Update is called once per frame
+    // Update is called oncsjjhjdnnjve per frame
     void Update()
     {
         if (isAttracting && player != null)

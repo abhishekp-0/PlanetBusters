@@ -5,6 +5,11 @@ public class PauseManager : MonoBehaviour
     private bool isPaused = false; // Track whether the game is paused
     public GameObject pauseMenu; // Reference to the pause menu UI
 
+    void Start()
+    {
+        pauseMenu.SetActive(false); // Ensure pause menu is hidden at the start
+    }
+
     void Update()
     {
         // Check for the pause key (Escape key in this example)

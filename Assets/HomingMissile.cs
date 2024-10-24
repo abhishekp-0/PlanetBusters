@@ -10,12 +10,24 @@ public class HomingMissile : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public float timer = 3f;
+    float t;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component attached to the missile
-    }
+        t = timer;
 
+    }
+    public void Update()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            Destroy(gameObject);
+            timer += t;
+        }
+    }
     // FixedUpdate is called at a fixed time interval and is better for physics calculations
     void FixedUpdate()
     {
@@ -42,4 +54,6 @@ public class HomingMissile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    
 }

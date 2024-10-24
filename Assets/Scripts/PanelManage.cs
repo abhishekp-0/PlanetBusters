@@ -44,7 +44,7 @@ public class PanelManage : MonoBehaviour
     {
         panels[currentPanelIndex].SetActive(false); // Hide the last panel
         additionalComponent.SetActive(true); // Show the additional component
-        GameManager.NewGame(); // Start the game
+        GameManager.NewGame(); // Start 
         Debug.Log("Level Started!");
         Time.timeScale = 1f; // Resume the game
     }

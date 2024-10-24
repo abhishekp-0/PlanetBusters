@@ -9,6 +9,10 @@ TagManager:
   - bullet
   - bulletNew
   - t1
+  - armour
+  - HP
+  - health
+  - triple
   layers:
   - Default
   - TransparentFX

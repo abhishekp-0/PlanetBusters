@@ -326,9 +326,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5065211716910128266}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0.216, y: -0.422, z: 0}
-  m_LocalScale: {x: 0.1545375, y: 0.1545375, z: 0.309075}
+  m_LocalScale: {x: 0.123939075, y: 0.123939075, z: 0.24787815}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6456199262349292518}
@@ -347,7 +347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs:
+  - {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  - {fileID: 7514331481918861413, guid: 8a37313dc92080841a2c088c546b60d6, type: 3}
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 4

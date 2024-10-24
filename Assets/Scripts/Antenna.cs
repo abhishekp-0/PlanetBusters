@@ -3,15 +3,17 @@ using UnityEngine.UI;
 
 public class Antenna : MonoBehaviour
 {
-    public GameObject asteroidPrefab;       // The asteroid prefab to spawn
+    // Array of asteroid prefabs to spawn (allowing multiple types)
+    public GameObject[] asteroidPrefabs;
+
     public float minSpawnDistance = 50f;    // Minimum distance from the player to spawn asteroids
-    public float maxSpawnDistance = 100f;    // Maximum distance from the player to spawn asteroids
+    public float maxSpawnDistance = 100f;   // Maximum distance from the player to spawn asteroids
     public float spawnInterval = 2f;        // Time between individual asteroid spawns
     public int numberOfAsteroids = 5;       // Number of asteroids to spawn in one batch
 
-    private GameObject player;               // Reference to the player
-    private float spawnTimer;                // Timer to track spawn intervals
-    private float batchSpawnTimer;           // Timer to track batch spawn intervals
+    private GameObject player;              // Reference to the player
+    private float spawnTimer;               // Timer to track spawn intervals
+    private float batchSpawnTimer;          // Timer to track batch spawn intervals
 
     public float leftAngle = -45f;          // The leftmost angle (in degrees)
     public float rightAngle = 45f;          // The rightmost angle (in degrees)
@@ -20,7 +22,6 @@ public class Antenna : MonoBehaviour
 
     private float timer = 0f;               // Timer to track the pendulum motion
     public Transform PendulumAxis;
-
 
     void Start()
     {
@@ -67,6 +68,10 @@ public class Antenna : MonoBehaviour
         // Calculate the spawn position (random distance away from the player in the random direction)
         Vector2 spawnPosition = (Vector2)player.transform.position + randomDirection * randomDistance;
 
+        // Randomly pick an asteroid from the array
+        int randomIndex = Random.Range(0, asteroidPrefabs.Length);
+        GameObject asteroidPrefab = asteroidPrefabs[randomIndex];
+
         // Instantiate the asteroid at the spawn position
         GameObject asteroid = Instantiate(asteroidPrefab, spawnPosition, Quaternion.identity);
 
@@ -89,6 +94,7 @@ public class Antenna : MonoBehaviour
             SpawnAsteroid(); // Call the method to spawn individual asteroids
         }
     }
+
     void Pendulum()
     {
         timer += Time.deltaTime * swingSpeed;

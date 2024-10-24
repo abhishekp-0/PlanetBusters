@@ -17,7 +17,6 @@ public class UpgradeManager : MonoBehaviour
 
     public TextMeshProUGUI tmp;
     public GameObject upgradePanel;
-    public bool isPanelActie = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,32 +25,29 @@ public class UpgradeManager : MonoBehaviour
         {
             upgradeAudio = GetComponent<AudioSource>();
         }
-
+        upgradePanel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         tmp.text = "POINTS: " + upgradesAvailable;
-        if(Input.GetKeyDown(KeyCode.Tab) )
+
+        // Check for Tab key press to toggle the upgradePanel
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (isPanelActie)
-            {
-                upgradePanel.SetActive(true);
-                isPanelActie = true;
-
-            }
-            else
-            {
-                upgradePanel.SetActive(false);
-                isPanelActie = false;
-
-            }
-
+            ToggleUpgradePanel();
         }
+
+    }
+
+    public void ToggleUpgradePanel()
+    {
+        // Toggle the active state of the upgrade panel
+        upgradePanel.SetActive(!upgradePanel.activeSelf);
     }
     [ContextMenu("upgradeh")]
-    void hpUpgrade()
+    public void hpUpgrade()
     {
         if (playerHealth.maxHealth < 175 && upgradesAvailable > 0)
         {
@@ -61,19 +57,19 @@ public class UpgradeManager : MonoBehaviour
         }
     }
     [ContextMenu("upgradea")]
-    void armorUpgrade()
+    public void armorUpgrade()
     {
         if (playerHealth.maxArmour < 175 && upgradesAvailable > 0)
         {
             playerHealth.maxArmour += armorUpgradeVal;
             upgradesAvailable--;
-            AudioManager.Instance.PlayUISound(0);
+            //AudioManager.Instance.PlayUISound(0);
 
         }
     }
     [ContextMenu("upgradet")]
 
-    void thrustUpgrade()
+    public void thrustUpgrade()
     {
         if (playerMovement.thrustPower < 25 && upgradesAvailable > 0)
         {
@@ -85,7 +81,7 @@ public class UpgradeManager : MonoBehaviour
 
     }
     [ContextMenu("upgradeb")]
-    void bulletUpgrade()
+    public void bulletUpgrade()
     {
         if (GameManager.Instance.bulletDamage < 25 && upgradesAvailable > 0)
         {
@@ -96,7 +92,7 @@ public class UpgradeManager : MonoBehaviour
 
     }
 
-   public  void increaseUpgradesAvl()
+    public void increaseUpgradesAvl()
     {
         upgradesAvailable += 1;
     }

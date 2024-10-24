@@ -23,10 +23,10 @@ public class finalPlanet : MonoBehaviour
     {
         if (wonn == false) {
 
-            if (sld.value <= 0)
-            {
-                Invoke("Inwon", 2f);
-            }
+            //if (sld.value <= 0)
+            //{
+            //    Invoke("Inwon", 2f);
+            //}
         }
         if (losss == false)
         {

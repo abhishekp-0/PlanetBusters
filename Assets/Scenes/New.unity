@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 4
@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 5
@@ -1813,6 +1813,9 @@ MonoBehaviour:
   WHolePlanet: {fileID: 1230475658}
   particle: {fileID: 1653135296996537945, guid: 2282c7faf0d428d46a579e9080700e4d, type: 3}
   bulletParticle: {fileID: 1763824066}
+  spawnObjects: []
+  spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!58 &189274811
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3128,6 +3131,9 @@ MonoBehaviour:
   WHolePlanet: {fileID: 1894762505}
   particle: {fileID: 1653135296996537945, guid: 7e1431bba01dc194b943c39cb8038fbc, type: 3}
   bulletParticle: {fileID: 1763824066}
+  spawnObjects: []
+  spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &321543797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3683,7 +3689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 5
@@ -9539,7 +9545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 5
@@ -15909,7 +15915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 3
@@ -16973,6 +16979,9 @@ MonoBehaviour:
   WHolePlanet: {fileID: 155580205}
   particle: {fileID: 1653135296996537945, guid: 7e1431bba01dc194b943c39cb8038fbc, type: 3}
   bulletParticle: {fileID: 1763824066}
+  spawnObjects: []
+  spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &850431585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25977,6 +25986,9 @@ MonoBehaviour:
   WHolePlanet: {fileID: 852151691}
   particle: {fileID: 1653135296996537945, guid: 8d030cb4dc23ea24a8fbde1c53e6a9fa, type: 3}
   bulletParticle: {fileID: 1763824066}
+  spawnObjects: []
+  spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &1377400190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26637,7 +26649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 3
@@ -27190,7 +27202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 3
@@ -27290,6 +27302,9 @@ MonoBehaviour:
   WHolePlanet: {fileID: 347523955}
   particle: {fileID: 1653135296996537945, guid: 2282c7faf0d428d46a579e9080700e4d, type: 3}
   bulletParticle: {fileID: 1763824066}
+  spawnObjects: []
+  spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &1587490718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27821,7 +27836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 5
@@ -27964,11 +27979,13 @@ MonoBehaviour:
   thrustPower: 15
   movePower: 5
   drag: 0.98
-  oscillationDuration: 3
-  oscillationFrequency: 20
-  oscillationMagnitude: 15
+  trailRenderer: {fileID: 0}
+  minVolume: 0.2
+  maxVolume: 1
+  maxTrailLength: 10
   rb: {fileID: 1626406020}
   cam: {fileID: 66372056}
+  audioSource: {fileID: 0}
   MouseOffset: 0
 --- !u!58 &1626406022
 CircleCollider2D:
@@ -28018,10 +28035,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  maxArmour: 100
+  armorDepletionRate: 10
   healthBar: {fileID: 321617580}
-  hasArmor: 1
+  armorBar: {fileID: 0}
+  currentHealth: 0
+  currentArmor: 0
   PlayerMovement: {fileID: 1626406021}
   sr: {fileID: 1626406018}
+  trailG: {fileID: 0}
+  shield: {fileID: 0}
 --- !u!114 &1626406024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28038,6 +28061,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3303519573982559832, guid: 62d4e36beb9924044b80dba28317e80d, type: 3}
   bulletForce: 20
   timer: 0.1
+  shakeIntensity: 1
+  shakeTimer: 0
 --- !u!114 &1626406025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30674,6 +30699,9 @@ MonoBehaviour:
   WHolePlanet: {fileID: 1726557548}
   particle: {fileID: 1653135296996537945, guid: cac9c7fdd117757438f405906d192702, type: 3}
   bulletParticle: {fileID: 1763824066}
+  spawnObjects: []
+  spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &1927032621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31639,6 +31667,9 @@ MonoBehaviour:
   WHolePlanet: {fileID: 1964049680}
   particle: {fileID: 1653135296996537945, guid: 2282c7faf0d428d46a579e9080700e4d, type: 3}
   bulletParticle: {fileID: 1763824066}
+  spawnObjects: []
+  spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &2006038584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31750,7 +31781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 3
@@ -31956,7 +31987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 5
@@ -32641,6 +32672,9 @@ MonoBehaviour:
   WHolePlanet: {fileID: 1606098985}
   particle: {fileID: 1653135296996537945, guid: 7e1431bba01dc194b943c39cb8038fbc, type: 3}
   bulletParticle: {fileID: 1763824066}
+  spawnObjects: []
+  spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &2118323459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32798,7 +32832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2125432641
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33243,7 +33277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a94f7c6ff4a5d54696e1cffbfdc994c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
+  asteroidPrefabs: []
   minSpawnDistance: 50
   maxSpawnDistance: 70
   spawnInterval: 5

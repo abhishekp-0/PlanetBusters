@@ -86,8 +86,23 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+<<<<<<< Updated upstream
         
         
+=======
+        if (currentArmor>0)
+        {
+            Debug.Log("Armor absorbed the hit!");
+            currentArmor -= damage;
+            if (currentArmor <= 0)
+            {
+                currentArmor = 0;
+            }
+           // UpdateArmorBar(); // Update the UI
+        }
+        else
+        {
+>>>>>>> Stashed changes
             currentHealth -= damage;
             if (currentHealth <= 0)
             {
@@ -113,17 +128,18 @@ public class HealthSystem : MonoBehaviour
     {
         if (healthBar != null)
         {
-            healthBar.value = (float)currentHealth / maxHealth;
+            // healthBar.value = (float)currentHealth / maxHealth;
+            healthBar.value = (float)currentHealth;
         }
     }
 
-    void UpdateArmorBar()
-    {
-        if (armorBar != null)
-        {
-            armorBar.value = (float)currentArmor / maxHealth;
-        }
-    }
+    //void UpdateArmorBar()
+    //{
+    //    if (armorBar != null)
+    //    { 
+    //        armorBar.value = (float)currentArmor / maxHealth;
+    //    }
+    //}
 
 
     void Die()

@@ -350,8 +350,8 @@ MonoBehaviour:
   asteroidPrefabs:
   - {fileID: 7514331481918861413, guid: efd895214fcb2854ca0f1077d3f747d0, type: 3}
   - {fileID: 7514331481918861413, guid: 8a37313dc92080841a2c088c546b60d6, type: 3}
-  minSpawnDistance: 50
-  maxSpawnDistance: 70
+  minSpawnDistance: 1000
+  maxSpawnDistance: 1200
   spawnInterval: 4
   numberOfAsteroids: 1
   leftAngle: -30

@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e9a8620a460887c438363597192e5589
   - enabled: 1
-    path: Assets/Scenes/New.unity
-    guid: 020aa69e549248c4d8f9ca30f314c1aa
+    path: Assets/Scenes/Abhinav.unity
+    guid: de6bc679b4e7a724d9083ff9bcef1f78
   m_configObjects: {}

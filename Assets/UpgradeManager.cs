@@ -87,7 +87,7 @@ public class UpgradeManager : MonoBehaviour
 
     public void thrustUpgrade()
     {
-        if (playerMovement.thrustPower < 25 && upgradesAvailable > 0)
+        if (playerMovement.thrustPower < 30 && upgradesAvailable > 0)
         {
             playerMovement.thrustPower += thrustUpgradeVal;
             playerMovement.movePower = playerMovement.thrustPower * 0.66f;

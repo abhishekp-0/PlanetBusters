@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
     // Load the main game scene when Play is clicked
     public void PlayGame()
     {
-        SceneManager.LoadScene("New");  // Make sure your game scene name matches here
+        SceneManager.LoadScene("Abhinav");  // Make sure your game scene name matches here
     }
 
     public void QuitGame()

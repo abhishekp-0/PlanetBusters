@@ -26,7 +26,7 @@ public class SliderValueToText : MonoBehaviour
             slider.value = Mathf.Clamp01(timer / timerDuration);
             UpdateSliderText(slider.value);
         }
-        if(slider.value < 1f)
+        if(slider.value <= 0f)
         {
             GameManager.Instance.GameOver();
         }

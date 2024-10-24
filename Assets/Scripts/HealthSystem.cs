@@ -31,13 +31,17 @@ public class HealthSystem : MonoBehaviour
 
     private void Update()
     {
+        if(healthBar.value <= 0f)
+        {
+            GameManager.Instance.GameOver();
+
+        }
         if (currentHealth <= 0)
         {
             sr.enabled = false;
             PlayerMovement.enabled = false;
             trailG.SetActive(false);
 
-            GameManager.Instance.GameOver();
         }
 
         if (Input.GetMouseButton(1) && currentArmor > 0)

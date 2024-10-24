@@ -258,6 +258,7 @@ MonoBehaviour:
   rotationSpeed: 180
   target: {fileID: 0}
   timer: 20
+  p: {fileID: 8554838739228967153, guid: e78d44390967af74b9b003e78cd306bf, type: 3}
 --- !u!50 &687511574620018497
 Rigidbody2D:
   serializedVersion: 4

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 0;
         if (Instance != null)
         {
             DestroyImmediate(gameObject);
@@ -28,6 +29,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void GameStart()
+    {
+        Time.timeScale = 1;
+    }
     private void OnDestroy()
     {
         if (Instance == this)
@@ -58,7 +63,7 @@ public class GameManager : MonoBehaviour
 
         player.gameObject.SetActive(false);
         Time.timeScale = 0;
-        gameOverScreen.SetActive(true);
+        gameOverScreen.SetActive(true); 
 
     }
 

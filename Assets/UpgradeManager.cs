@@ -15,6 +15,16 @@ public class UpgradeManager : MonoBehaviour
     public float bulletUpgradeVal = 5f;
     public AudioSource upgradeAudio;
 
+    public int hpu = 0;
+    public int armoru = 0;
+    public int thrustu = 0;
+    public int bulletu = 0;
+
+    public GameObject[] hpupgrades;
+    public GameObject[] armorupgrades;
+    public GameObject[] thrustupgrades;
+    public GameObject[] bulletupgrades;
+
     public TextMeshProUGUI tmp;
     public GameObject upgradePanel;
 
@@ -46,6 +56,7 @@ public class UpgradeManager : MonoBehaviour
         // Toggle the active state of the upgrade panel
         upgradePanel.SetActive(!upgradePanel.activeSelf);
     }
+
     [ContextMenu("upgradeh")]
     public void hpUpgrade()
     {
@@ -54,7 +65,12 @@ public class UpgradeManager : MonoBehaviour
             playerHealth.maxHealth += hpUpgradeVal;
             upgradesAvailable--;
             upgradeAudio.Play();
+            hpu++;
+            hpupgrades[hpu - 1].SetActive(true);
         }
+
+
+
     }
     [ContextMenu("upgradea")]
     public void armorUpgrade()
@@ -63,8 +79,8 @@ public class UpgradeManager : MonoBehaviour
         {
             playerHealth.maxArmour += armorUpgradeVal;
             upgradesAvailable--;
-            //AudioManager.Instance.PlayUISound(0);
-
+            armoru++;
+            armorupgrades[armoru - 1].SetActive(true);
         }
     }
     [ContextMenu("upgradet")]
@@ -74,9 +90,11 @@ public class UpgradeManager : MonoBehaviour
         if (playerMovement.thrustPower < 25 && upgradesAvailable > 0)
         {
             playerMovement.thrustPower += thrustUpgradeVal;
-            playerMovement.movePower += playerMovement.thrustPower * 0.66f;
+            playerMovement.movePower = playerMovement.thrustPower * 0.66f;
             upgradesAvailable--;
             upgradeAudio.Play();
+            thrustu++;
+            thrustupgrades[thrustu - 1].SetActive(true);
         }
 
     }
@@ -88,6 +106,8 @@ public class UpgradeManager : MonoBehaviour
             GameManager.Instance.bulletDamage += bulletUpgradeVal;
             upgradesAvailable--;
             upgradeAudio.Play();
+            bulletu++;
+            bulletupgrades[bulletu - 1].SetActive(true);
         }
 
     }

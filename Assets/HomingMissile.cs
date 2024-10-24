@@ -12,6 +12,8 @@ public class HomingMissile : MonoBehaviour
 
     public float timer = 3f;
     float t;
+
+    public GameObject p;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +51,10 @@ public class HomingMissile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( collision.tag == "Planet")
+        if ( collision.tag == "Player")
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
+            Instantiate(p, transform.position, transform.rotation);
         }
     }
 

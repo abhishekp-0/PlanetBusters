@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float thrustPower = 10f;
     public float movePower = 12f;
     public float drag = 0.98f;
+    public TrailRenderer trailRenderer;  // Reference to the TrailRenderer component
+    public float minVolume = 0.2f;  // Minimum volume of the audio source
+    public float maxVolume = 1.0f;  // Maximum volume of the audio source
+    public float maxTrailLength = 10f;  // Max trail length for which the volume is at max
+
     //public float oscillationDuration = 3f;
     //public float oscillationFrequency = 20f;
     //public float oscillationMagnitude = 15f;
 
     public Rigidbody2D rb;
     public Camera cam;
+    public AudioSource audioSource;
 
     private Vector2 mousePos;
     private float thrustInput;
@@ -31,6 +38,11 @@ public class PlayerMovement : MonoBehaviour
         thrustInput = Input.GetAxisRaw("Vertical");
         moveInput = Input.GetAxisRaw("Horizontal");
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        //audioSource.volume = 0.2f +(float) + (float)(0.8*Mathf.Abs(rb.velocity.magnitude));
+
+        float currentTrailLength = Mathf.Min(trailRenderer.time * rb.velocity.magnitude, maxTrailLength);
+        float normalizedTrailLength = Mathf.InverseLerp(0, maxTrailLength, currentTrailLength);
+        audioSource.volume = Mathf.Lerp(minVolume, maxVolume, normalizedTrailLength);
     }
 
     void FixedUpdate()

@@ -13,6 +13,8 @@ TagManager:
   - HP
   - health
   - triple
+  - missile
+  - um
   layers:
   - Default
   - TransparentFX

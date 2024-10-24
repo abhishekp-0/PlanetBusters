@@ -1815,6 +1815,7 @@ MonoBehaviour:
   bulletParticle: {fileID: 1763824066}
   spawnObjects: []
   spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!58 &189274811
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3132,6 +3133,7 @@ MonoBehaviour:
   bulletParticle: {fileID: 1763824066}
   spawnObjects: []
   spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &321543797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16979,6 +16981,7 @@ MonoBehaviour:
   bulletParticle: {fileID: 1763824066}
   spawnObjects: []
   spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &850431585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25985,6 +25988,7 @@ MonoBehaviour:
   bulletParticle: {fileID: 1763824066}
   spawnObjects: []
   spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &1377400190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27300,6 +27304,7 @@ MonoBehaviour:
   bulletParticle: {fileID: 1763824066}
   spawnObjects: []
   spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &1587490718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27974,8 +27979,13 @@ MonoBehaviour:
   thrustPower: 15
   movePower: 5
   drag: 0.98
+  trailRenderer: {fileID: 0}
+  minVolume: 0.2
+  maxVolume: 1
+  maxTrailLength: 10
   rb: {fileID: 1626406020}
   cam: {fileID: 66372056}
+  audioSource: {fileID: 0}
   MouseOffset: 0
 --- !u!58 &1626406022
 CircleCollider2D:
@@ -28026,6 +28036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   maxArmour: 100
+  armorDepletionRate: 10
   healthBar: {fileID: 321617580}
   armorBar: {fileID: 0}
   currentHealth: 0
@@ -28033,6 +28044,7 @@ MonoBehaviour:
   PlayerMovement: {fileID: 1626406021}
   sr: {fileID: 1626406018}
   trailG: {fileID: 0}
+  shield: {fileID: 0}
 --- !u!114 &1626406024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30689,6 +30701,7 @@ MonoBehaviour:
   bulletParticle: {fileID: 1763824066}
   spawnObjects: []
   spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &1927032621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31656,6 +31669,7 @@ MonoBehaviour:
   bulletParticle: {fileID: 1763824066}
   spawnObjects: []
   spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &2006038584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32660,6 +32674,7 @@ MonoBehaviour:
   bulletParticle: {fileID: 1763824066}
   spawnObjects: []
   spawnRadius: 2
+  numberOfObjectsToSpawn: 2
 --- !u!114 &2118323459
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class HomingMissile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component attached to the missile
         t = timer;
-
+        target = GameObject.FindWithTag("Player").transform;
     }
     public void Update()
     {

@@ -46,11 +46,11 @@ public class HealthSystem : MonoBehaviour
         {
             DeactivateShield();
         }
-
         if (isShieldActive)
         {
             DepleteArmor(Time.deltaTime * armorDepletionRate);
         }
+
     }
 
     private void ActivateShield()
@@ -86,17 +86,7 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentArmor > 0)
-        {
-            Debug.Log("Armor absorbed the hit!");
-            currentArmor -= damage;
-            if (currentArmor < 0)
-            {
-                currentArmor = 0;
-            }
-            UpdateArmorBar(); // Update the UI
-        }
-        else
+        if (!isShieldActive)
         {
             currentHealth -= damage;
             if (currentHealth <= 0)
@@ -104,10 +94,11 @@ public class HealthSystem : MonoBehaviour
                 currentHealth = 0;
                 Die();
             }
-            UpdateHealthBar(); // Update the UI
-
-            Debug.Log("TakeDamage");
+            UpdateHealthBar(); // Update the health UI
         }
+
+
+        Debug.Log("TakeDamage");
     }
 
     public void Heal(int amount)
@@ -124,7 +115,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (healthBar != null)
         {
-            healthBar.value = (float)currentHealth / maxHealth; // Corrected to set the health value relative to maxHealth
+            healthBar.value = (float)currentHealth / maxHealth;
         }
     }
 
@@ -132,12 +123,14 @@ public class HealthSystem : MonoBehaviour
     {
         if (armorBar != null)
         {
-            armorBar.value = (float)currentArmor / maxArmour; // Changed to use maxArmour
+            armorBar.value = (float)currentArmor / maxHealth;
         }
     }
 
+
     void Die()
     {
+
         Debug.Log("Player Died!");
         // Add death logic here
     }
@@ -146,26 +139,29 @@ public class HealthSystem : MonoBehaviour
     public void RestoreArmor(float amount)
     {
         currentArmor += amount;
-        if (currentArmor > maxArmour) // Changed to use maxArmour
+        if (currentArmor > maxHealth)
         {
-            currentArmor = maxArmour; // Ensure it doesn't exceed maxArmour
+            currentHealth = maxHealth;
         }
-        UpdateArmorBar(); // Update the UI
+        UpdateHealthBar(); // Update the UI
 
         Debug.Log("Armor restored!");
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    // Function to set a specific index in hitArray to false and check if all elements are false
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("asteroid"))
+        if (collision.tag == "asteroid")
         {
             TakeDamage(10);
         }
-        if (collision.CompareTag("bullet"))
+        if (collision.tag == "bullet")
         {
             TakeDamage(1);
         }
-        if (collision.CompareTag("missile"))
+        if (collision.tag == "missile")
         {
             TakeDamage(30);
         }
